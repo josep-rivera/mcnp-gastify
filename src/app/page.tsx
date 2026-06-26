@@ -31,7 +31,8 @@ const jsonLd = {
       price: "9.90",
       priceCurrency: "PEN",
       billingIncrement: "P1M",
-      description: "Plan premium con gastos ilimitados y clasificación avanzada con IA",
+      description:
+        "Plan premium con gastos ilimitados y clasificación avanzada con IA",
     },
   ],
   aggregateRating: {
@@ -57,6 +58,7 @@ export default function Home() {
     <>
       <script
         type="application/ld+json"
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: static Schema.org JSON-LD, no user input
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <Navbar />

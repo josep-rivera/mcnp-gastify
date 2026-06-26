@@ -1,12 +1,18 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
+import { cn } from "@/lib/utils";
 
 const GastifyLogo = () => (
   <div className="flex items-center gap-2">
-    <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+    <svg
+      width="36"
+      height="36"
+      viewBox="0 0 36 36"
+      fill="none"
+      aria-hidden="true"
+    >
       <circle cx="18" cy="18" r="18" fill="#2D6A4F" />
       <text
         x="18"
@@ -53,7 +59,10 @@ export default function Navbar() {
         </a>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-8" aria-label="Navegación principal">
+        <nav
+          className="hidden md:flex items-center gap-8"
+          aria-label="Navegación principal"
+        >
           {navLinks.map((link) => (
             <a
               key={link.href}
@@ -78,6 +87,7 @@ export default function Navbar() {
 
         {/* Mobile hamburger */}
         <button
+          type="button"
           className="md:hidden p-2 rounded-xl text-[#0D1F2D]"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label={mobileOpen ? "Cerrar menú" : "Abrir menú"}
