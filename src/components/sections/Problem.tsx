@@ -1,16 +1,19 @@
-const painPoints = [
+import type { LucideIcon } from "lucide-react";
+import { BarChart3, DollarSign, Eye } from "lucide-react";
+
+const painPoints: { icon: LucideIcon; title: string; description: string }[] = [
   {
-    emoji: "💸",
+    icon: DollarSign,
     title: "Sin registro",
     description: "No sabés cuánto gastaste esta semana",
   },
   {
-    emoji: "😰",
+    icon: BarChart3,
     title: "Sin control",
     description: "El dinero se va antes de que termine el mes",
   },
   {
-    emoji: "📊",
+    icon: Eye,
     title: "Sin visibilidad",
     description: "No tenés idea de en qué gastás más",
   },
@@ -34,7 +37,6 @@ export default function Problem() {
       </svg>
 
       <div className="relative z-10 mx-auto max-w-6xl px-6 text-center">
-        {/* Eyebrow */}
         <span className="inline-block mb-4 text-sm font-semibold uppercase tracking-widest text-[#52B788]">
           El problema
         </span>
@@ -43,7 +45,6 @@ export default function Problem() {
           ¿A dónde se fue tu plata?
         </h2>
 
-        {/* Big stat */}
         <div className="mb-14">
           <p className="text-8xl sm:text-9xl font-extrabold text-[#2D6A4F] leading-none">
             57%
@@ -53,18 +54,26 @@ export default function Problem() {
           </p>
         </div>
 
-        {/* Pain point cards */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-          {painPoints.map((point) => (
-            <div
-              key={point.title}
-              className="rounded-3xl border border-[#E8EDE9] bg-white p-8 text-left shadow-sm hover:shadow-md transition-shadow"
-            >
-              <div className="text-4xl mb-4">{point.emoji}</div>
-              <h3 className="text-lg font-bold text-[#0D1F2D] mb-2">{point.title}</h3>
-              <p className="text-[#0D1F2D]/60 text-sm leading-relaxed">{point.description}</p>
-            </div>
-          ))}
+          {painPoints.map((point) => {
+            const Icon = point.icon;
+            return (
+              <div
+                key={point.title}
+                className="rounded-3xl border border-[#E8EDE9] bg-white p-8 text-left shadow-sm hover:shadow-md transition-shadow"
+              >
+                <div className="mb-4 w-12 h-12 rounded-2xl bg-[#F7F9F8] flex items-center justify-center">
+                  <Icon size={22} className="text-[#2D6A4F]" />
+                </div>
+                <h3 className="text-lg font-bold text-[#0D1F2D] mb-2">
+                  {point.title}
+                </h3>
+                <p className="text-[#0D1F2D]/60 text-sm leading-relaxed">
+                  {point.description}
+                </p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
